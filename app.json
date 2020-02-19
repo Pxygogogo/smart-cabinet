@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/medicine-box/index",
+    "pages/archives/index",
+    "pages/settings/index" 
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "i-icon": "/dist/icon/index"
+  },
+  "tabBar":{
+    "color": "#cdcdcd",
+    "selectedColor": "#000",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/images/pills.png",
+        "selectedIconPath": "/images/pillsS.png"
+      },
+      {
+        "pagePath": "pages/medicine-box/index",
+        "text": "药箱",
+        "iconPath": "/images/medicineBox.png",
+        "selectedIconPath": "/images/medicineBoxS.png"
+      },
+      {
+        "pagePath": "pages/archives/index",
+        "text": "档案",
+        "iconPath": "/images/archives.png",
+        "selectedIconPath": "/images/archivesS.png"
+      },
+      {
+        "pagePath": "pages/settings/index",
+        "text": "设置",
+        "iconPath": "/images/settings.png",
+        "selectedIconPath": "/images/settingsS.png"
+      }
+
+    ]
+  },
+
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
