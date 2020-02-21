@@ -1,18 +1,19 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/medicine-box/index",
+    "pages/add-medicine/index",
+    "pages/index/index",
     "pages/archives/index",
     "pages/settings/index" 
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "智能药箱",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "i-icon": "/dist/icon/index"
+    
   },
   "tabBar":{
     "color": "#cdcdcd",

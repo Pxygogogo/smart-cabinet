@@ -1,2 +1,39 @@
-<!--pages/medicine-box/index.wxml-->
-<text>pages/medicine-box/index.wxml</text>
+<!-- 搜索框 -->
+<view class="searech-box">
+  <view class="search" bindtap="goToSearch">
+    <view class="search-left">
+      <image class="icon-search" src="/images/search.svg"></image>
+      <input placeholder="搜索在药箱中的药物">
+      </input>
+    </view>
+  </view>
+  <view class="add-medicine" bindtap="goToAdd"><image src="/images/add.svg"></image></view>
+</view>
+
+
+<view class="ification">
+  <!-- 左边部分 -->
+  <scroll-view class="scroll-left" scroll-y scroll-with-animation style="height:{{phoneHeight}}rpx" scroll-top="{{VerticalNavTop}}">
+    <block wx:for="{{classification}}" wx:key="index">
+      <view class="leftTitle {{index === activeIndex ? 'active':''}}" data-index="{{index}}" data-id="{{index}}" bindtap="switchClassify">{{item.title}}</view>
+    </block>
+  </scroll-view>
+
+  <!-- 右边部分 -->
+
+  <scroll-view class="scroll-right" scroll-y bindscroll="" style="height:{{phoneHeight}}rpx" scroll-into-view="main-id-{{TabCur}}">
+    <view class="contentScroll-item">
+      <view class="medicine-box" wx:for="{{model}}" wx:key="{{item._id}}"  >
+        <view class="medicine-img">
+          <image src="{{item.medicineImg}}"></image>
+        </view>
+        <view class="desc">
+          <view class="medicine-name">药名：{{item.name}}</view>
+          <view class="medicine-count">数量：{{item.count}}</view>
+          <view class="expiration-date">有效期：{{item.effectiveDate}}</view>
+        </view>
+      </view>
+      
+    </view>
+  </scroll-view>
+</view>

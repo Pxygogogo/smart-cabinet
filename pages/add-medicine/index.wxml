@@ -1,0 +1,37 @@
+<form bindsubmit="handleAddMedicine">
+  <i-panel title="药物基本资料">
+    <view>
+      <view style="font-size:14px;text-align:center;">*药物图片</view>
+      <view class="upload" bindtap="chooseImg">
+        <image src="{{model.img}}"></image>
+        <input type="diabled" name="medicineImg" hidden value="{{model.img}}"></input>
+      </view>
+    </view>
+    <i-input value="{{ model.name }}" name="name" maxlength="20" title="*药物名称"  class="required" autofocus placeholder="请输入药物名称" />
+    <!-- <i-input value="{{ model.type }}" name="type" maxlength="20" title="药物类型" placeholder="请输入药物类型" /> -->
+    <view style="padding:9px 15px;font-size:14px;">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{medicineType}}" name='type'>
+      <view class="picker">
+        药物类型：{{medicineType[index]}}
+      </view>
+    </picker>
+    </view>
+    <i-input value="{{ model.quantity }}" name="quantity" maxlength="20" title="储备数量" placeholder="如：3盒" />
+    <i-input value="{{ model.effectiveDate }}" name="effectiveDate" maxlength="20" title="有效日期" placeholder="如：2020年1月25日" />
+
+    <i-input title="服药规则" disabled />
+    <i-input value="{{ model.time }}" maxlength="20" name="time" title="*每日次数" placeholder="如：1次" />
+    <i-input value="{{ model.package }}" maxlength="20" name="package" title="*每次粒(包)数" placeholder="如：1粒" />
+    <view class="radio-box">
+      <radio-group class="radio-group" bindchange="radioChange" name="beforeEat">
+        <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+          <text>{{item.value}}</text>
+        </radio>
+      </radio-group>
+    </view>
+    <view>
+      <button type="primary" form-type="submit">提交</button>
+    </view>
+  </i-panel>
+
+</form>

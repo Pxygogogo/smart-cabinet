@@ -1,0 +1,28 @@
+/* pages/add-medicine/index.wxss */
+
+.upload {
+  width: 60%;
+  height: 260rpx;
+  margin: 0 auto;
+  border: 2px solid #f1f2f3;
+}
+
+.upload image {
+  display: block;
+  margin: 0 auto;
+  width: 250rpx;
+  height: 250rpx;
+}
+
+.radio-box {
+  height: 120rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* .required::before {
+  content: '* ';
+  color: red;
+} */
