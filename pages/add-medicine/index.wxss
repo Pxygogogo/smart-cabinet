@@ -26,3 +26,13 @@
   content: '* ';
   color: red;
 } */
+
+.btn-box{
+  display: flex;
+  justify-content: center;
+}
+.btn-box view{
+  width: 30%;
+
+}
+

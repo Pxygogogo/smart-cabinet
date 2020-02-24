@@ -1,0 +1,21 @@
+<!-- 搜索框 -->
+<view class="searech-box">
+  <view class="search" bindtap="goToSearch">
+    <view class="search-left">
+      <image class="icon-search" src="/images/search.svg"></image>
+      <input placeholder="搜索在药箱中的药物" bindconfirm="handleSearch" focus="true" >
+      </input>
+    </view>
+  </view>
+</view>
+
+<view class="medicine-box" wx:for="{{model}}" wx:key="{{item._id}}"  >
+        <view class="medicine-img">
+          <image src="{{item.medicineImg}}"></image>
+        </view>
+        <view class="desc">
+          <view class="medicine-name">药名：{{item.name}}</view>
+          <view class="medicine-count">数量：{{item.count}}</view>
+          <view class="expiration-date">有效期：{{item.effectiveDate}}</view>
+        </view>
+ </view>

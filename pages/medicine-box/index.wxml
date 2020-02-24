@@ -15,7 +15,7 @@
   <!-- 左边部分 -->
   <scroll-view class="scroll-left" scroll-y scroll-with-animation style="height:{{phoneHeight}}rpx" scroll-top="{{VerticalNavTop}}">
     <block wx:for="{{classification}}" wx:key="index">
-      <view class="leftTitle {{index === activeIndex ? 'active':''}}" data-index="{{index}}" data-id="{{index}}" bindtap="switchClassify">{{item.title}}</view>
+      <view class="leftTitle {{index === activeIndex ? 'active':''}}" data-index="{{index}}" data-type="{{item.title}}" data-id="{{index}}" bindtap="switchClassify">{{item.title}}</view>
     </block>
   </scroll-view>
 
@@ -23,13 +23,13 @@
 
   <scroll-view class="scroll-right" scroll-y bindscroll="" style="height:{{phoneHeight}}rpx" scroll-into-view="main-id-{{TabCur}}">
     <view class="contentScroll-item">
-      <view class="medicine-box" wx:for="{{model}}" wx:key="{{item._id}}"  >
+      <view class="medicine-box" wx:for="{{model}}" wx:key="index" bindtap="goToEdit" data-index="{{item._id}}" >
         <view class="medicine-img">
           <image src="{{item.medicineImg}}"></image>
         </view>
         <view class="desc">
           <view class="medicine-name">药名：{{item.name}}</view>
-          <view class="medicine-count">数量：{{item.count}}</view>
+          <view class="medicine-count">数量：{{item.quantity}}</view>
           <view class="expiration-date">有效期：{{item.effectiveDate}}</view>
         </view>
       </view>

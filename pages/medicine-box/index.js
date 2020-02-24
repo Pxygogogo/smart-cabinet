@@ -13,7 +13,7 @@ Page({
       { title: "跌打损伤" },
       { title: "皮肤用药" },
       { title: "儿童用药" },
-      { title: "其他用药" },
+      { title: "其他药品" },
 
     ],
 
@@ -23,6 +23,17 @@ Page({
       url: '/pages/add-medicine/index',
     })
   },
+  goToSearch(){
+    wx.navigateTo({
+      url: '/pages/search/index',
+    })
+  },
+  goToEdit(e){
+    const _id = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: `/pages/add-medicine/index?_id=${_id}`,
+    })
+  },
   async fetchMedicine() {
     const res = await app.curl.get('/medicines')
     this.setData({
@@ -30,7 +41,7 @@ Page({
     })
   },
   async fetchTypeMedicine(type) {
-    const res = await app.curl.get(`/medicines?type=${type}`)
+    const res = await app.curl.get(`/medicines?query=${type}`)
     this.setData({
       'model': res,
     })
@@ -57,7 +68,7 @@ Page({
 
   // 侧边栏的点击事件
   switchClassify: function (e) {
-    const type = e.currentTarget.dataset.index - 1;
+    const type = e.currentTarget.dataset.type;
     this.fetchTypeMedicine(type);
     var that = this;
     that.setData({

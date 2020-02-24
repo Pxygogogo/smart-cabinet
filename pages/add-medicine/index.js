@@ -1,26 +1,34 @@
 // pages/add-medicine/index.js
 const app = getApp();
 import { BASE_URL } from '../../config.js'
+const medicineArr = ['感冒用药', '肠胃用药', '跌打损伤', '皮肤用药', '儿童用药', '其他药品'];
+const items = ['饭前', '饭后', '无'];
+let _id='';
 Page({
 
   data: {
     model: {
       type: '感冒用药',
-      img: '/images/upload.svg',
-      beforeEat: false,
-      effectiveDate:''
+      medicineImg: '/images/upload.svg',
+      beforeEat: '',
+      effectiveDate: '',
+      quantity:''
     },
-    items: [
-      { name: true, value: '饭前' },
-      { name: false, value: '饭后', checked: 'true' },
-    ],
-    medicineType: ['感冒用药', '肠胃用药', '跌打损伤', '皮肤用药', '儿童用药', '其他药品'],
-    index: 0
+    ways: items,
+    medicineType: medicineArr,
+    index: 0,
+    _id:_id
   },
-  bindPickerChange: function (e) {
+  bindPickerChange1: function (e) {
     this.setData({
       index: e.detail.value,
-      'model.type': ['感冒用药', '肠胃用药', '跌打损伤', '皮肤用药', '儿童用药', '其他药品'][e.detail.value]
+      'model.type': medicineArr[e.detail.value]
+    })
+  },
+  bindPickerChange2: function (e) {
+    this.setData({
+      index: e.detail.value,
+      'model.beforeEat': items[e.detail.value]
     })
   },
   chooseImg() {
@@ -38,7 +46,7 @@ Page({
           },
           success(res) {
             that.setData({
-              'model.img': JSON.parse(res.data).url
+              'model.medicineImg': JSON.parse(res.data).url
             })
           }
         })
@@ -50,11 +58,42 @@ Page({
       'model.beforeEat': e.detail.value,
     })
   },
+  backToMedicineBox() {
+    wx.switchTab({
+      url: '/pages/medicine-box/index',
+      success(e) {
+        var page = getCurrentPages().pop();
+        if (page == undefined || page == null) return;
+        page.onLoad();
+      }
+    })
+  },
+  myShowToast(title) {
+    wx.showToast({
+      title,
+      duration: 1500,
+      success() {
+        setTimeout(function () {
+          wx.switchTab({
+            url: '/pages/medicine-box/index',
+            success(e) {
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
+          })
+        }, 1500)
+      }
+    });
+  },
   async handleAddMedicine(e) {
+    let that = this;
     const data = e.detail.value;
     if (data.name && data.time && data.package && data.medicineImg) {
       const res = await app.curl.post('/medicines', data);
-      if (res._id) {
+      console.log(_id)
+      console.log(that._id)
+      if (res._id && _id==='') {
         wx.showModal({
           title: '提示',
           content: '继续添加',
@@ -64,23 +103,49 @@ Page({
                 url: '/pages/add-medicine/index',
               })
             } else if (res.cancel) {
-              wx.switchTab({
-                url: '/pages/medicine-box/index',
-                success(e) {
-                  var page = getCurrentPages().pop();
-                  if (page == undefined || page == null) return;
-                  page.onLoad();
-                }
-              })
+              this.backToMedicineBox();
             }
           }
         })
+      } else {
+        this.myShowToast('修改成功');
       }
     } else {
       wx.showToast({
         title: '带星号的为必填项！',
         icon: 'none',
       })
+    }
+  },
+  async fetchDataById(id) {
+    const res = await app.curl.get(`/medicines${id}`)
+    this.setData({
+      'model': res
+    })
+
+  },
+  del(e) {
+    let that = this;
+    const { _id, name } = e.currentTarget.dataset;
+    wx.showModal({
+      title: '删除警告',
+      content: `确定删除药品「${name}」吗？`,
+      async success(res) {
+        if (res.confirm) {
+          const res = await app.curl.delete('/medicines', { _id })
+          if (res._id) {
+            that.myShowToast('删除成功');
+          }
+        } else {
+
+        }
+      }
+    })
+  },
+  onLoad(options) {
+    _id = options._id;
+    if (_id) {
+      this.fetchDataById(options._id)
     }
   }
 
