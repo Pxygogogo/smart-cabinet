@@ -10,7 +10,7 @@ Page({
     model: {
       type: '感冒用药',
       medicineImg: '/images/upload.svg',
-      beforeEat: '',
+      beforeEat: '无',
       effectiveDate: '',
       quantity:''
     },
@@ -58,16 +58,6 @@ Page({
       'model.beforeEat': e.detail.value,
     })
   },
-  backToMedicineBox() {
-    wx.switchTab({
-      url: '/pages/medicine-box/index',
-      success(e) {
-        var page = getCurrentPages().pop();
-        if (page == undefined || page == null) return;
-        page.onLoad();
-      }
-    })
-  },
   myShowToast(title) {
     wx.showToast({
       title,
@@ -91,8 +81,6 @@ Page({
     const data = e.detail.value;
     if (data.name && data.time && data.package && data.medicineImg) {
       const res = await app.curl.post('/medicines', data);
-      console.log(_id)
-      console.log(that._id)
       if (res._id && _id==='') {
         wx.showModal({
           title: '提示',
@@ -103,7 +91,14 @@ Page({
                 url: '/pages/add-medicine/index',
               })
             } else if (res.cancel) {
-              this.backToMedicineBox();
+              wx.switchTab({
+                url: '/pages/medicine-box/index',
+                success(e) {
+                  var page = getCurrentPages().pop();
+                  if (page == undefined || page == null) return;
+                  page.onLoad();
+                }
+              })
             }
           }
         })
@@ -142,9 +137,9 @@ Page({
       }
     })
   },
-  onLoad(options) {
-    _id = options._id;
-    if (_id) {
+  onLoad(options) {    
+    if (options._id) {
+      _id = options._id;
       this.fetchDataById(options._id)
     }
   }

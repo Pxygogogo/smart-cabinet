@@ -6,6 +6,12 @@ Page({
   data: {
     model:[]
   },
+  goToEdit(e) {
+    const _id = e.currentTarget.dataset.index;
+    wx.navigateTo({
+      url: `/pages/add-medicine/index?_id=${_id}`,
+    })
+  },
   async fetchMedicine() {
     const res = await app.curl.get('/medicines')
     this.setData({

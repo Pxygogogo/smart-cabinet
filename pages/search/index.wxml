@@ -9,7 +9,7 @@
   </view>
 </view>
 
-<view class="medicine-box" wx:for="{{model}}" wx:key="{{item._id}}"  >
+<view class="medicine-box" wx:for="{{model}}" wx:key="{{item._id}}"  bindtap="goToEdit"  data-index="{{item._id}}" >
         <view class="medicine-img">
           <image src="{{item.medicineImg}}"></image>
         </view>
