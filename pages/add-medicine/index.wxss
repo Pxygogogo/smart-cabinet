@@ -30,6 +30,7 @@
 .btn-box{
   display: flex;
   justify-content: center;
+  margin-top: 30rpx;
 }
 .btn-box view{
   width: 30%;

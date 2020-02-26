@@ -1,66 +1,29 @@
 // pages/archives/index.js
+const app = getApp()
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    model:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  goToAdd(){
+    wx.navigateTo({
+      url: '/pages/add-archives/index',
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  async fetchArchives() {
+    const res = await app.curl.get('/archives')
+    this.setData({
+      'model': res,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  goToEdit(e){
+    const _id = e.currentTarget.dataset._id;
+    wx.navigateTo({
+      url: `/pages/add-archives/index?_id=${_id}`,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onLoad(){
+    this.fetchArchives();
   }
+
 })

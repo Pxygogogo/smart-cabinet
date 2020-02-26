@@ -3,5 +3,6 @@
     "i-input": "../../dist/input/index",
     "i-panel": "../../dist/panel/index",
     "i-modal": "../../dist/modal/index"
-  }
+  },
+  "navigationBarTitleText": "编辑药品"
 }

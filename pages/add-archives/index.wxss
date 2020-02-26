@@ -1,0 +1,52 @@
+form {
+  min-height: 700px;
+  display: block;
+}
+
+.container-box {
+  width: 100%;
+  margin: 30rpx auto;
+}
+
+.avatar {
+  width: 36%;
+  height: 260rpx;
+  border-radius: 20rpx;
+  box-shadow: 1rpx 1rpx 10rpx #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+.avatar image {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  margin: auto;
+}
+
+.relationship {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 5rpx;
+}
+
+.textArea {
+  height: 100px;
+  box-sizing: border-box;
+  padding: 40rpx;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+
+.btn-box view {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}

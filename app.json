@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/archives/index",
+    "pages/add-archives/index",
     "pages/medicine-box/index",
     "pages/add-medicine/index",
     "pages/search/index",
     "pages/index/index",
-    "pages/archives/index",
     "pages/settings/index" 
   ],
   "window": {

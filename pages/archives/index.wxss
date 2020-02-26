@@ -1,1 +1,41 @@
 /* pages/archives/index.wxss */
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 20rpx;
+}
+
+.avatar-box {
+  width: 35%;
+  height: 300rpx;
+  margin-top: 30rpx;
+}
+
+.avatar {
+  width: 100%;
+  height: 260rpx;
+  border-radius: 20rpx;
+  box-shadow: 1rpx 1rpx 10rpx #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar image {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+  margin: auto;
+}
+
+.relationship {
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  margin-top: 5rpx;
+}

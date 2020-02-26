@@ -1,0 +1,37 @@
+<form bindsubmit="handleSubmit">
+  <view class="container-box">
+    <i-input value="{{ model._id }}" name="_id" style="display:none;" />
+    <view class="avatar" bindtap="uploadAvatar">
+      <image src="{{model.avatarImg}}"></image>
+      <input type="diabled" name="avatarImg" hidden value="{{model.avatarImg}}"></input>
+    </view>
+    <view class="relationship">点击上传头像</view>
+  </view>
+  <i-panel title="">
+    <i-input value="{{ model.relation }}" title="*关系" maxlength="20" name="relation" placeholder="如：父母" />
+    <view style="padding:9px 15px;font-size:14px;">
+      <picker bindchange="bindPickerChange" value="{{model.sex}}" range="{{sex}}" name='sex'>
+        <view class="picker">
+          *性别：{{model.sex}}
+        </view>
+      </picker>
+    </view>
+    <i-input value="{{ model.age }}" type="number" title="年龄" name="age" maxlength="20" placeholder="请输入年龄" />
+    <i-panel title="身体状况">
+      <textarea class="textArea" placeholder="请输入近期身体状况" name="condition" value="{{model.condition}}"></textarea>
+    </i-panel>
+    <i-input value="{{ model.dailyMedicine }}" title="日常用药" maxlength="40" name="dailyMedicine" placeholder="请输入药名" />
+    <i-input value="{{ model.taboo }}" title="个人禁忌" name="taboo" maxlength="20" placeholder="如过敏史等" />
+    <i-input value="{{ model.recentMedicine }}" title="近期用药" name="recentMedicine" maxlength="40" placeholder="请输入药名" />
+
+    <view class="btn-box">
+      <view>
+        <button size="mini" type="primary" form-type="submit">保存</button>
+      </view>
+      <view wx:if="{{model._id}}">
+        <button data-_id="{{model._id}}" data-relation="{{model.relation}}" size="mini" type="warn" bindtap="del">删除</button>
+      </view>
+    </view>
+  </i-panel>
+
+</form>
