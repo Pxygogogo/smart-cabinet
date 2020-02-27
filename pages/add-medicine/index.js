@@ -85,12 +85,19 @@ Page({
         wx.showModal({
           title: '提示',
           content: '继续添加',
-          success(res) {
+          async success(res) {
             if (res.confirm) {
               wx.navigateTo({
                 url: '/pages/add-medicine/index',
               })
             } else if (res.cancel) {
+              const res = await app.curl.post('/adddone',{message:'add done'});
+              if(res==="failed"){
+                wx.showToast({
+                  title: '添加完成指令发送给药箱失败！',
+                  icon:'none'
+                })
+              }
               wx.switchTab({
                 url: '/pages/medicine-box/index',
                 success(e) {

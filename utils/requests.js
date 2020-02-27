@@ -1,12 +1,13 @@
 import { BASE_URL } from '../config.js';
 
 const request = (method, uri, data) => {
+  const token = wx.getStorageSync('token');
   return new Promise((resvole, reject) => {
     wx.request({
       url: `${BASE_URL}${uri}`,
       data,
       header: {
-
+        Authorization: `Bearer ${token}`
       },
       method,
       success(res) {
