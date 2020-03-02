@@ -39,9 +39,25 @@ Page({
   },
   async fetchMedicines() {
     const res = await app.curl.get('/medicines')
-    this.setData({
-      initMedicines: res
-    })
+    if (JSON.stringify(res) === '[]') {
+      wx.showModal({
+        title: '提示',
+        content: '请先添加药品',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/add-archives/index',
+            })
+          }
+        }
+      })
+    } else{
+      this.setData({
+        initMedicines: res
+      })
+    }
+    
   },
   async fetchArchives() {
     const res = await app.curl.get('/archives')
