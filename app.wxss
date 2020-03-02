@@ -1,4 +1,7 @@
 /**app.wxss**/
+@import '/style/icon.wxss';
+
+
 .container {
   height: 100%;
   display: flex;
@@ -80,6 +83,7 @@ view{
   border-radius: 20rpx;
   padding: 20rpx 0;
   box-shadow: 1rpx 1rpx 10rpx #ccc;
+  position: relative;
 }
 
 .medicine-img{

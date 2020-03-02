@@ -26,6 +26,7 @@ Page({
           });
           const { token, user } = res;
           app.user = user;
+          wx.setStorageSync('user', user);
           wx.setStorageSync('token', token);
           wx.switchTab({
             url: '/pages/index/index',

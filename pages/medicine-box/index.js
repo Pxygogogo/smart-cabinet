@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
   data: {
-    model: {},
+    model: [],
     activeIndex: 0,
     VerticalNavTop: 0,
     TabCur: 0,
@@ -23,12 +23,12 @@ Page({
       url: '/pages/add-medicine/index',
     })
   },
-  goToSearch(){
+  goToSearch() {
     wx.navigateTo({
       url: '/pages/search/index',
     })
   },
-  goToEdit(e){
+  goToEdit(e) {
     const _id = e.currentTarget.dataset.index;
     wx.navigateTo({
       url: `/pages/add-medicine/index?_id=${_id}`,

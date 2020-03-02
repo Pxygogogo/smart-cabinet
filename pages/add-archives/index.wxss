@@ -21,8 +21,8 @@ form {
 
 .avatar image {
   display: block;
-  width: 80rpx;
-  height: 80rpx;
+  width: 200rpx;
+  height: 200rpx;
   margin: auto;
 }
 

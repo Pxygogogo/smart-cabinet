@@ -1,2 +1,63 @@
-<!--pages/settings/index.wxml-->
-<text>pages/settings/index.wxml</text>
+<view class="body" style="height:{{phoneHeight}}px">
+		<!-- 头像昵称签到部分 -->
+		<view class="topBar">
+			<!-- 头像昵称 -->
+			<view class="userImg">
+				<view class="avatar_nickname">
+					<view class="avatar">
+						<image class="avatarImg" src="{{avatarUrl}}"></image>
+					</view>
+					<view class="nickname">
+						<text class="#">{{nickName}}</text>
+						<!-- vip勋章 -->
+						<text class="icon-vip" style="margin-left:30rpx"></text>
+					</view>
+				</view>
+				<view class="kefu"><text class="icon-service"></text>客服服务</view>
+			</view>
+			<!-- 签到 -->
+			<view class="qiandao">
+			<!-- 签到涉及canvas所以暂时搁置 -->
+				<view class="qianText">
+					<text class="icon-calendar text-gray"></text>
+					<text style="margin-left:20rpx">签到</text>
+				</view>
+				<view class="icon_">
+					<text class="icon-right text-gray"></text>
+				</view>
+			</view>
+		</view>
+		<!-- 选项卡部分 -->
+		<view class="chioce">
+			<!-- 选项卡item -->
+			<view class="choiceItem" bindtap="">
+				<view class="" bindtap="bindEmail">
+					<text class="icon-message text-gray"></text>
+					<text style="margin-left:20rpx">邮箱绑定</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+			<view class="choiceItem">
+				<view class="">
+					<text class="icon-post text-gray"></text>
+					<text style="margin-left:20rpx">意见反馈</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+      <view class="choiceItem">
+				<view class="">
+					<text class="icon-form text-gray"></text>
+					<text style="margin-left:20rpx">健康常识</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+      
+			<view class="choiceItem" bindtap="">
+				<view class="">
+					<text class="icon-shop text-gray"></text>
+					<text style="margin-left:20rpx">关于我们</text>
+				</view>
+				<text class="icon-right text-gray"></text>
+			</view>
+		</view>
+	</view>

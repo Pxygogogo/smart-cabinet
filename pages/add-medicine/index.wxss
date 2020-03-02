@@ -1,4 +1,8 @@
 /* pages/add-medicine/index.wxss */
+form{
+  min-height: 700px;
+  display: block;
+}
 
 .upload {
   width: 60%;
@@ -21,11 +25,6 @@
   justify-content: space-between;
   align-items: center;
 }
-
-/* .required::before {
-  content: '* ';
-  color: red;
-} */
 
 .btn-box{
   display: flex;

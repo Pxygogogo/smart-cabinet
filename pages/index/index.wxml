@@ -1,0 +1,33 @@
+<view>
+  <!-- //创建提醒 -->
+  <block wx:if="{{model===''}}">
+    <view class="notice" style="height:250rpx;">
+      <view class="slogan">您还没有创建服药提醒，快来创建吧</view>
+    </view>
+
+  </block>
+
+  <!-- //提醒列表 -->
+  <block wx:else>
+    <view class="notice" wx:for="{{model}}" wx:key="item" bindtap="goToEdit" data-_id="{{item._id}}" >
+      <view class="notice-time">提醒:{{item.noticePerson}}  一日{{item.time}}次</view>
+      <view class="notice-medicine-box"  >
+        <view class="specific-medicine" wx:for="{{item.medicines}}" wx:for-item="medicineItem" wx:key="medicineItem">
+          <image src="{{medicineItem.medicineImg}}"></image>
+          <view class="medicine-name">药名：{{medicineItem.name}}</view>
+          <view class="medicine-package">药量：{{medicineItem.package}}</view>
+        </view>
+      </view>
+      
+    </view>
+    
+    
+  </block>
+
+  
+    <view class="add" bindtap="goToAdd">
+      +
+    </view>
+  
+
+</view>

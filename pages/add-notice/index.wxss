@@ -1,0 +1,27 @@
+.box{
+  /* width: 100%;
+  min-height: 800px;
+  background-color: #FBF9FE; */
+  padding: 30rpx;
+
+}
+
+
+
+.picker{
+  /* background-color: #f1f1f1; */
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 5%;
+}
+.btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+
+.btn-box view {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}

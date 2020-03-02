@@ -7,7 +7,9 @@
       </input>
     </view>
   </view>
-  <view class="add-medicine" bindtap="goToAdd"><image src="/images/add.svg"></image></view>
+  <view class="add-medicine" bindtap="goToAdd">
+    <image src="/images/add.svg"></image>
+  </view>
 </view>
 
 
@@ -23,7 +25,7 @@
 
   <scroll-view class="scroll-right" scroll-y bindscroll="" style="height:{{phoneHeight}}rpx" scroll-into-view="main-id-{{TabCur}}">
     <view class="contentScroll-item">
-      <view class="medicine-box" wx:for="{{model}}" wx:key="index" bindtap="goToEdit" data-index="{{item._id}}" >
+      <view class="medicine-box" wx:for="{{model}}" wx:key="index" bindtap="goToEdit" data-index="{{item._id}}">
         <view class="medicine-img">
           <image src="{{item.medicineImg}}"></image>
         </view>
@@ -32,8 +34,13 @@
           <view class="medicine-count">数量：{{item.quantity}}</view>
           <view class="expiration-date">有效期：{{item.effectiveDate}}</view>
         </view>
+        <block wx:if="{{item.isChecked}}">
+          <view class="isChecked icon-check">
+          </view>
+        </block>
+
       </view>
-      
+
     </view>
   </scroll-view>
 </view>

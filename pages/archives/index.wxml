@@ -2,7 +2,7 @@
   <view class="avatar-box" wx:for="{{model}}" wx:key="id" bindtap="goToEdit" data-_id="{{item._id}}">
   
     <view class="avatar">
-      <image src="{{item.avatarImg}}"></image>
+      <image src="{{item.avatarImg}}" style="display: block;width: 260rpx; height: 260rpx;"></image>
     </view>
     <view class="relationship">{{item.relation}}</view>
   </view>

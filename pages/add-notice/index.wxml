@@ -1,0 +1,39 @@
+<view class="box">
+  <form bindsubmit="handleAddNotice">
+  <input value="{{model._id}}" name="_id" disabled="true" hidden></input>
+    <i-panel title="请选择一天内服药次数">
+      <picker bindchange="bindPickerChange" value="{{time[index]}}" range="{{time}}" name='time'>
+        <view class="picker">
+          服药次数：{{model.time}}
+        </view>
+      </picker>
+    </i-panel>
+
+    <i-panel title="请选择提醒对象">
+      <picker bindchange="bindPickerChange1" value="{{archives[index]}}" range="{{archives}}" name='noticePerson'>
+        <view class="picker">
+          提醒对象：{{model.noticePerson}}
+        </view>
+      </picker>
+    </i-panel>
+
+    <i-panel title="请选择服药名称">
+      <i-checkbox-group current="{{current}}" bindchange="handleFruitChange">
+        <i-checkbox wx:for="{{initMedicines}}" position="{{position}}" wx:key="item" value="{{item.name}}">
+        </i-checkbox>
+      </i-checkbox-group>
+    </i-panel>
+
+
+    <view class="btn-box">
+      <view>
+        <button size="mini" type="primary" form-type="submit">保存提醒</button>
+      </view>
+      <view wx:if="{{model._id}}">
+        <button data-_id="{{model._id}}" data-relation="{{model.relation}}" size="mini" type="warn" bindtap="del">删除</button>
+      </view>
+    </view>
+
+  </form>
+
+</view>

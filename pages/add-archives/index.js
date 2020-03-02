@@ -61,6 +61,11 @@ Page({
             }, 1500)
           }
         })
+      } else if (res.code === -1) {
+        wx.showModal({
+          title: '添加失败',
+          content: res.msg,
+        })
       }else{
         wx.showToast({
           title:'修改成功',

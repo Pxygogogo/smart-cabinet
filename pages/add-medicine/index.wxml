@@ -21,7 +21,7 @@
     <i-input value="{{ model.effectiveDate }}" name="effectiveDate" maxlength="20" title="有效日期" placeholder="如：2020年1月25日" />
 
     <i-input title="服药规则" disabled />
-    <i-input value="{{ model.time }}" maxlength="20" name="time" title="*每日次数" placeholder="如：1次" />
+    <!-- <i-input value="{{ model.time }}" maxlength="20" name="time" title="*每日次数" placeholder="如：1次" /> -->
     <i-input value="{{ model.package }}" maxlength="20" name="package" title="*每次粒(包)数" placeholder="如：1粒" />
     <view style="padding:9px 15px;font-size:14px;">
       <picker bindchange="bindPickerChange2" value="{{ways[index]}}" range="{{ways}}" name='beforeEat'>
