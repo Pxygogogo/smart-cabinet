@@ -8,7 +8,8 @@ Page({
   data: {
     model: {
       time: '3',
-      noticePerson: ''
+      noticePerson: '',
+      acrtTime: '08:30'
     },
     time: ['2', '3'],
     archives: [],
@@ -16,13 +17,18 @@ Page({
     current: [],
     position: 'right',
   },
-  bindPickerChange: function(e) {
+  bindTimeChange: function (e) {
+    this.setData({
+      'model.acrtTime': e.detail.value,
+    })
+  },
+  bindPickerChange: function (e) {
     this.setData({
       index: e.detail.value,
       'model.time': time[e.detail.value]
     })
   },
-  bindPickerChange1: function(e) {
+  bindPickerChange1: function (e) {
     this.setData({
       index: e.detail.value,
       'model.noticePerson': this.data.archives[e.detail.value]
@@ -47,17 +53,17 @@ Page({
         success(res) {
           if (res.confirm) {
             wx.navigateTo({
-              url: '/pages/add-archives/index',
+              url: '/pages/add-medicines/index',
             })
           }
         }
       })
-    } else{
+    } else {
       this.setData({
         initMedicines: res
       })
     }
-    
+
   },
   async fetchArchives() {
     const res = await app.curl.get('/archives')
@@ -85,8 +91,11 @@ Page({
     }
   },
   async handleAddNotice(e) {
-    const time = this.data.model.time;
-    const noticePerson = this.data.model.noticePerson;
+    const {
+      time,
+      acrtTime,
+      noticePerson
+    } = this.data.model;
     const medicines = [];
     const data = e.detail.value;
     (this.data.initMedicines).map(item => {
@@ -94,18 +103,19 @@ Page({
         if (item.name === i) medicines.push(item)
       })
     });
-    if(!time||JSON.stringify(medicines)==='[]'||!noticePerson){
+    if (!time || JSON.stringify(medicines) === '[]' || !noticePerson) {
       wx.showModal({
         title: '提示',
         content: '请完善信息后提交',
-        showCancel:false
+        showCancel: false
       })
-    }else{
+    } else {
       const res = await app.curl.post('/notices', {
         _id: data._id,
         time,
         medicines,
-        noticePerson
+        noticePerson,
+        acrtTime
       });
       if (res._id && _id === '') {
         wx.showToast({
@@ -143,13 +153,13 @@ Page({
         });
       }
     }
-   
+
   },
   async fetchDataById(id) {
     const res = await app.curl.get(`/notices${id}`)
     let current = [];
-    if(res.medicines){
-      res.medicines.map(item=>{
+    if (res.medicines) {
+      res.medicines.map(item => {
         current.push(item.name)
       })
     }
@@ -160,13 +170,17 @@ Page({
   },
 
   del(e) {
-    const { _id } = e.currentTarget.dataset;
+    const {
+      _id
+    } = e.currentTarget.dataset;
     wx.showModal({
       title: '删除警告',
       content: `确定删除吗？`,
       async success(res) {
         if (res.confirm) {
-          const res = await app.curl.delete('/notices', { _id })
+          const res = await app.curl.delete('/notices', {
+            _id
+          })
           if (res._id) {
             wx.showToast({
               title: '删除成功',
@@ -189,7 +203,7 @@ Page({
           wx.showModal({
             title: '错误',
             content: '删除失败',
-            complete(){
+            complete() {
               wx.switchTab({
                 url: '/pages/index/index',
                 success(e) {

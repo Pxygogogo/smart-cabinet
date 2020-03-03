@@ -30,8 +30,8 @@
 		<!-- 选项卡部分 -->
 		<view class="chioce">
 			<!-- 选项卡item -->
-			<view class="choiceItem" bindtap="">
-				<view class="" bindtap="bindEmail">
+			<view class="choiceItem" bindtap="bindEmail">
+				<view class="" >
 					<text class="icon-message text-gray"></text>
 					<text style="margin-left:20rpx">邮箱绑定</text>
 				</view>

@@ -9,7 +9,7 @@ Page({
   },
   bindEmail(){
     wx.navigateTo({
-      url: '',
+      url: '/pages/email/index',
     })
   },
 

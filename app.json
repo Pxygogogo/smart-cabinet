@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/email/index",
+    "pages/settings/index",
     "pages/add-notice/index",
     "pages/medicine-box/index",
-    "pages/settings/index",
     "pages/login/index",
     "pages/archives/index",
     "pages/add-archives/index",

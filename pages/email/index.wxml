@@ -1,0 +1,9 @@
+<form bindsubmit="bindEmail">
+  <i-panel title="邮箱地址：">
+    <i-input value="{{ email }}" placeholder="请输入邮箱地址" maxlength="40" name="email" value="{{email}}" />
+  </i-panel>
+
+  <view style="margin-top:50rpx;">
+    <button type="primary"  form-type="submit">绑定</button>
+  </view>
+</form>
