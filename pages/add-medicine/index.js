@@ -5,7 +5,7 @@ import {
 } from '../../config.js'
 const medicineArr = ['感冒用药', '肠胃用药', '跌打损伤', '皮肤用药', '儿童用药', '其他药品'];
 const items = ['饭前', '饭后', '无'];
-let _id = '';
+// let _id = '';
 Page({
 
   data: {
@@ -19,7 +19,7 @@ Page({
     ways: items,
     medicineType: medicineArr,
     index: 0,
-    _id: _id
+    _id: ''
   },
   bindPickerChange1: function(e) {
     this.setData({
@@ -83,7 +83,7 @@ Page({
     const data = e.detail.value;
     if (data.name  && data.package && data.medicineImg) {
       const res = await app.curl.post('/medicines', data);
-      if (res._id && _id === '') {
+      if (res._id && this.data._id === '') {
         wx.showModal({
           title: '提示',
           content: '继续添加？',
@@ -160,8 +160,9 @@ Page({
   },
   onLoad(options) {
     if (options._id) {
-      _id = options._id;
-      console.log(_id)
+      this.setData({
+        _id: options._id
+      })
       this.fetchDataById(options._id)
     }
   }

@@ -20,7 +20,6 @@ Page({
   },
   async handleSearch(e) {
     const res = await app.curl.get('/medicines', { query: e.detail.value })
-    console.log(res)
     if(res!=[]){
       this.setData({
         'model': res

@@ -1,7 +1,7 @@
 const app = getApp()
 let time = ['2', '3'];
 const archives = [];
-let _id = '';
+// let _id = '';
 Page({
 
 
@@ -16,6 +16,7 @@ Page({
     initMedicines: [],
     current: [],
     position: 'right',
+    _id:''
   },
   bindTimeChange: function (e) {
     this.setData({
@@ -117,7 +118,7 @@ Page({
         noticePerson,
         acrtTime
       });
-      if (res._id && _id === '') {
+      if (res._id && this.data._id === '') {
         wx.showToast({
           title: '添加成功',
           duration: 1500,
@@ -221,7 +222,9 @@ Page({
 
   onLoad(options) {
     if (options._id) {
-      _id = options._id;
+      this.setData({
+        _id:options._id
+      })
       this.fetchDataById(options._id)
       this.fetchMedicines();
     } else {

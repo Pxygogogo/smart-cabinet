@@ -1,16 +1,16 @@
 const app = getApp();
 import { BASE_URL } from '../../config.js'
 const sex = ['男', '女'];
-let _id = '';
+// let _id = '';
 Page({
   data: {
     model:{
       avatarImg:'../../images/add.svg',
       sex:'',
       relation:''
-
     },
     sex,
+    _id:''
   },
   bindPickerChange: function (e) {
     this.setData({
@@ -44,7 +44,7 @@ Page({
     const data = e.detail.value;
     if(data.relation&&data.sex){
       const res = await app.curl.post('/archives', data)
-      if (res._id && _id === ''){
+      if (res._id && this.data._id === ''){
         wx.showToast({
           title: '添加成功',
           duration: 1500,
@@ -132,7 +132,9 @@ Page({
 
   onLoad(options){
     if (options._id) {
-      _id = options._id;
+      this.setData({
+        _id: options._id
+      })
       this.fetchDataById(options._id)
     }
   }
