@@ -37,9 +37,9 @@
 				</view>
 				<text class="icon-right text-gray"></text>
 			</view>
-			<view class="choiceItem">
+			<view class="choiceItem" bindtap="goToFeedback">
 				<view class="">
-					<text class="icon-post text-gray"></text>
+					<text class="icon-post text-gray" ></text>
 					<text style="margin-left:20rpx">意见反馈</text>
 				</view>
 				<text class="icon-right text-gray"></text>
@@ -52,7 +52,7 @@
 				<text class="icon-right text-gray"></text>
 			</view>
       
-			<view class="choiceItem" bindtap="">
+			<view class="choiceItem" bindtap="goToAbout">
 				<view class="">
 					<text class="icon-shop text-gray"></text>
 					<text style="margin-left:20rpx">关于我们</text>

@@ -1,0 +1,15 @@
+<form bindsubmit="handleSubmit">
+  <view class="img-box">
+    <image src="/images/feedback.svg"></image>
+  </view>
+
+  <view class="body">
+    <view class="title">意见反馈</view>
+    <view class="txt">
+      <textarea value="{{model.feedback}}" name="feedback"></textarea>
+    </view>
+  </view>
+  <view class="btn">
+    <button type="primary" form-type="submit">确认提交</button>
+  </view>
+</form>

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/feedback/index",
     "pages/email/index",
     "pages/settings/index",
     "pages/add-notice/index",

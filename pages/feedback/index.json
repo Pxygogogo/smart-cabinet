@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index"
+  },
+  "navigationBarTitleText":"意见反馈"
+}

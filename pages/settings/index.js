@@ -12,6 +12,16 @@ Page({
       url: '/pages/email/index',
     })
   },
+  goToFeedback(){
+    wx.navigateTo({
+      url: '/pages/feedback/index',
+    })
+  },
+  goToAbout(){
+    wx.navigateTo({
+      url: '/pages/email/index',
+    })
+  },
 
   onLoad(options) {
     const { avatarUrl, nickName } = app.user;
