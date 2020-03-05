@@ -1,0 +1,8 @@
+<view class="img-box">
+    <image src="/images/feedback.svg"></image>
+</view>
+
+<view class="body">
+       <view>我们团队均是来自大连海事大学的大三学生</view>
+       <view>如有问题请联系：dlmu_pxy@163.com</view>
+</view>

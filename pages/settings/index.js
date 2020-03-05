@@ -19,7 +19,7 @@ Page({
   },
   goToAbout(){
     wx.navigateTo({
-      url: '/pages/email/index',
+      url: '/pages/aboutus/index',
     })
   },
 
