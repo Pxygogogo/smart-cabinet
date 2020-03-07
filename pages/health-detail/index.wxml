@@ -1,0 +1,10 @@
+<view class="box">
+  <view class="title">{{model.title}}</view>
+  <view class="info">
+    <view class="source">{{model.source}}</view>
+    <view class="pub-time">{{model.pub_time}}</view>
+  </view>
+  <view class="content">
+    <rich-text nodes="{{model.content}}"></rich-text>
+  </view>
+</view>

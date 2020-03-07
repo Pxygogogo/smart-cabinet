@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "components/article/index",
+    "pages/health/index",
+    "pages/health-detail/index",
     "pages/aboutus/index",
     "pages/feedback/index",
     "pages/email/index",
@@ -19,10 +22,8 @@
     "navigationBarTitleText": "智能药箱",
     "navigationBarTextStyle": "black"
   },
-  "usingComponents": {
-    
-  },
-  "tabBar":{
+  "usingComponents": {},
+  "tabBar": {
     "color": "#cdcdcd",
     "selectedColor": "#000",
     "list": [
@@ -50,10 +51,8 @@
         "iconPath": "/images/settings.png",
         "selectedIconPath": "/images/settingsS.png"
       }
-
     ]
   },
-
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
