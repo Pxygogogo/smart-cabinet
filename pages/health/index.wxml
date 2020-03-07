@@ -1,0 +1,3 @@
+<view>
+<article page="{{page}}" ></article>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "article":"/components/article/index"
+  },
+  "navigationBarTitleText":"健康常识"
+}

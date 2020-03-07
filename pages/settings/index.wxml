@@ -44,7 +44,7 @@
 				</view>
 				<text class="icon-right text-gray"></text>
 			</view>
-      <view class="choiceItem">
+      <view class="choiceItem" bindtap="goToHealth">
 				<view class="">
 					<text class="icon-form text-gray"></text>
 					<text style="margin-left:20rpx">健康常识</text>

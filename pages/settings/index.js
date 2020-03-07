@@ -22,6 +22,11 @@ Page({
       url: '/pages/aboutus/index',
     })
   },
+  goToHealth(){
+    wx.navigateTo({
+      url: '/pages/health/index',
+    })
+  },
 
   onLoad(options) {
     const { avatarUrl, nickName } = app.user;
