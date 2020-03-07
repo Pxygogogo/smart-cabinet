@@ -54,7 +54,7 @@ Page({
         success(res) {
           if (res.confirm) {
             wx.navigateTo({
-              url: '/pages/add-medicines/index',
+              url: '/pages/add-medicine/index',
             })
           }
         }
