@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "components/article/index",
+    "pages/login/index",
     "pages/health/index",
     "pages/health-detail/index",
     "pages/aboutus/index",
@@ -10,7 +11,6 @@
     "pages/settings/index",
     "pages/add-notice/index",
     "pages/medicine-box/index",
-    "pages/login/index",
     "pages/archives/index",
     "pages/add-archives/index",
     "pages/add-medicine/index",

@@ -36,7 +36,14 @@ Page({
     
   },
   onShow(){
-
+    let token = wx.getStorageSync('token');
+    if(!token){
+      wx.redirectTo({
+        url: '/pages/login/index',
+      })
+    }else{
+      this.fetchNotice();
+    }
   }
 
 })

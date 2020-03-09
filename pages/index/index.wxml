@@ -14,7 +14,7 @@
       <view class="notice-medicine-box"  >
         <view class="specific-medicine" wx:for="{{item.medicines}}" wx:for-item="medicineItem" wx:key="medicineItem">
           <image src="{{medicineItem.medicineImg}}"></image>
-          <view class="medicine-name">药名：{{medicineItem.name}}</view>
+          <view class="medicine-name"><span class="red-ball"></span>{{medicineItem.name}}</view>
           <view class="medicine-package">药量：{{medicineItem.package}}</view>
         </view>
       </view>

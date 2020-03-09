@@ -1,5 +1,5 @@
 form {
-  min-height: 700px;
+  min-height: 750px;
   display: block;
 }
 
@@ -21,8 +21,8 @@ form {
 
 .avatar image {
   display: block;
-  width: 200rpx;
-  height: 200rpx;
+  width: 80%;
+  height: 100%;
   margin: auto;
 }
 

@@ -5,7 +5,7 @@ const sex = ['男', '女'];
 Page({
   data: {
     model:{
-      avatarImg:'../../images/add.svg',
+      avatarImg:'../../images/upload_img.svg',
       sex:'',
       relation:''
     },

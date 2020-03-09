@@ -11,7 +11,7 @@ Page({
   data: {
     model: {
       type: '感冒用药',
-      medicineImg: '/images/upload.svg',
+      medicineImg: '/images/upload_img.svg',
       beforeEat: '无',
       effectiveDate: '',
       quantity: ''
