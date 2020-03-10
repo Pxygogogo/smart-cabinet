@@ -16,7 +16,11 @@ Page({
       this.setData({
         'model': res,
       })
-    } 
+    } else{
+      this.setData({
+        'model': '',
+      })
+    }
   },
   goToEdit(e) {
     const _id = e.currentTarget.dataset._id;

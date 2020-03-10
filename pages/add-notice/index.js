@@ -99,6 +99,7 @@ Page({
     } = this.data.model;
     const medicines = [];
     const data = e.detail.value;
+    const email = wx.getStorageSync('email')
     (this.data.initMedicines).map(item => {
       (this.data.current).map(i => {
         if (item.name === i) medicines.push(item)

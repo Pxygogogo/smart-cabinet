@@ -17,17 +17,19 @@ Page({
         _id
       })
       if (res._id) {
+        wx.setStorageSync('email', res.email);
         wx.showToast({
           title: '绑定成功',
           duration: 1500,
           success() {
-            setTimeout(function() {
+            setTimeout(function () {
               wx.switchTab({
                 url: '/pages/settings/index',
               })
             }, 1500)
           }
         })
+
       } else {
         wx.showToast({
           title: '绑定失败',
@@ -48,7 +50,9 @@ Page({
     const {
       _id
     } = wx.getStorageSync('user');
-    const {email} = await app.curl.get('/email',{
+    const {
+      email
+    } = await app.curl.get('/email', {
       _id
     });
     if (email) {
