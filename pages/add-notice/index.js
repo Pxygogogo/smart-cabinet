@@ -16,7 +16,12 @@ Page({
     initMedicines: [],
     current: [],
     position: 'right',
-    _id:''
+    _id: ''
+  },
+  methods: {
+    async submitAddNotice(_id, time, medicines, noticePerson, acrtTime) {
+
+    },
   },
   bindTimeChange: function (e) {
     this.setData({
@@ -91,7 +96,9 @@ Page({
       })
     }
   },
+
   async handleAddNotice(e) {
+    let that = this;
     const {
       time,
       acrtTime,
@@ -99,7 +106,7 @@ Page({
     } = this.data.model;
     const medicines = [];
     const data = e.detail.value;
-    const email = wx.getStorageSync('email')
+    const email = wx.getStorageSync('email') || '';
     (this.data.initMedicines).map(item => {
       (this.data.current).map(i => {
         if (item.name === i) medicines.push(item)
@@ -111,6 +118,61 @@ Page({
         content: '请完善信息后提交',
         showCancel: false
       })
+    } else if (email === '') {
+      wx.showModal({
+        title: '温馨提示',
+        content: '绑定邮箱后可获取提醒通知，是否绑定？',
+        async success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/email/index',
+            })
+          } else if (res.cancel) {
+            const res = await app.curl.post('/notices', {
+              _id: data._id,
+              time,
+              medicines,
+              noticePerson,
+              acrtTime
+            });
+            if (res._id && that.data._id === '') {
+              wx.showToast({
+                title: '添加成功',
+                duration: 1500,
+                success() {
+                  setTimeout(function () {
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                      success(e) {
+                        var page = getCurrentPages().pop();
+                        if (page == undefined || page == null) return;
+                        page.onLoad();
+                      }
+                    })
+                  }, 1500)
+                }
+              })
+            } else {
+              wx.showToast({
+                title: '修改成功',
+                duration: 1500,
+                success() {
+                  setTimeout(function () {
+                    wx.switchTab({
+                      url: '/pages/index/index',
+                      success(e) {
+                        var page = getCurrentPages().pop();
+                        if (page == undefined || page == null) return;
+                        page.onLoad();
+                      }
+                    })
+                  }, 1500)
+                }
+              });
+            }
+          }
+        }
+      })
     } else {
       const res = await app.curl.post('/notices', {
         _id: data._id,
@@ -119,7 +181,7 @@ Page({
         noticePerson,
         acrtTime
       });
-      if (res._id && this.data._id === '') {
+      if (res._id && that.data._id === '') {
         wx.showToast({
           title: '添加成功',
           duration: 1500,
@@ -224,7 +286,7 @@ Page({
   onLoad(options) {
     if (options._id) {
       this.setData({
-        _id:options._id
+        _id: options._id
       })
       this.fetchDataById(options._id)
       this.fetchMedicines();

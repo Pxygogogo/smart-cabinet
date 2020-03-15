@@ -4,7 +4,7 @@ import {
   BASE_URL
 } from '../../config.js'
 const medicineArr = ['感冒用药', '肠胃用药', '跌打损伤', '皮肤用药', '儿童用药', '其他药品'];
-const items = ['饭前', '饭后', '无'];
+const items = ['无', '饭后', '饭前'];
 // let _id = '';
 Page({
 
