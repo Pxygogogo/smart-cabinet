@@ -30,7 +30,7 @@ view{
   justify-content: flex-start;
 }
 .add-medicine{
-  width: 25%;
+  width: 12%;
   height: 60rpx;
 }
 

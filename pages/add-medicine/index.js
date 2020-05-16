@@ -10,11 +10,13 @@ Page({
 
   data: {
     model: {
+      name:'',
       type: '感冒用药',
       medicineImg: '/images/upload_img.svg',
       beforeEat: '无',
       effectiveDate: '',
-      quantity: ''
+      quantity: '',
+      package:''
     },
     ways: items,
     medicineType: medicineArr,
@@ -158,12 +160,39 @@ Page({
       }
     })
   },
+
+ 
+
   onLoad(options) {
+    let that = this;
     if (options._id) {
       this.setData({
         _id: options._id
       })
       this.fetchDataById(options._id)
+    }
+    if(options.barCode){
+      const info =  wx.request({
+        url: 'https://api.jisuapi.com/barcode2/query', 
+        method:'GET',
+        data: {
+          appkey: '91fe05de17920c6b',
+          barcode: options.barCode
+        },
+        header: {
+          'content-type': 'application/json' // 默认值
+        },
+        success (res) {
+          const {data:{result}} = res;
+          that.setData({
+            'model.name':result.name,
+            'model.medicineImg':result.pic||'/images/upload_img.svg',
+            'model.quantity':result.type
+          })
+          
+        }
+      })
+      
     }
   }
 

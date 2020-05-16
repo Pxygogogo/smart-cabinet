@@ -2,7 +2,8 @@
   "usingComponents": {
     "i-checkbox-group": "../../dist/checkbox-group/index",
     "i-panel": "../../dist/panel/index",
-    "i-checkbox": "../../dist/checkbox/index"
+    "i-checkbox": "../../dist/checkbox/index",
+    "i-input": "../../dist/input/index"
   },
   "navigationBarTitleText":"添加提醒"
 }

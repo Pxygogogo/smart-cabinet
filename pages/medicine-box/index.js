@@ -18,6 +18,25 @@ Page({
     ],
 
   },
+  goToScan() {
+    wx.scanCode({
+      complete:  (res) => {
+        const {result} = res;
+        if(result){
+          wx.navigateTo({
+            url: `/pages/add-medicine/index?barCode=${result}`,
+          })
+        }else{
+          wx.showToast({
+            title: '扫描失败',
+            icon:'none',
+            duration:1500
+          })
+        }
+       
+      },
+    })
+  },
   goToAdd() {
     wx.navigateTo({
       url: '/pages/add-medicine/index',

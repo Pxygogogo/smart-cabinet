@@ -15,7 +15,7 @@ Page({
       content: ''
     })
     let that = this;
-    WxParse.wxParse('content', 'html', res.content, that, 5);
+    WxParse.wxParse('content', 'html', res, that, 5);
   },
   onLoad(options) {
     const {

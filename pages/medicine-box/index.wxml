@@ -7,6 +7,9 @@
       </input>
     </view>
   </view>
+   <view class="add-medicine" bindtap="goToScan">
+    <image src="/images/scan.svg"></image>
+  </view>
   <view class="add-medicine" bindtap="goToAdd">
     <image src="/images/add.svg"></image>
   </view>

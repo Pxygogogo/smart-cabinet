@@ -9,7 +9,8 @@ Page({
     model: {
       time: '3',
       noticePerson: '',
-      acrtTime: '08:30'
+      acrtTime: '08:30',
+      durationTime:''
     },
     time: ['2', '3'],
     archives: [],
@@ -102,8 +103,9 @@ Page({
     const {
       time,
       acrtTime,
-      noticePerson
+      noticePerson,
     } = this.data.model;
+      
     const medicines = [];
     const data = e.detail.value;
     const email = wx.getStorageSync('email') || '';
@@ -133,7 +135,8 @@ Page({
               time,
               medicines,
               noticePerson,
-              acrtTime
+              acrtTime,
+              durationTime:data.durationTime
             });
             if (res._id && that.data._id === '') {
               wx.showToast({
@@ -179,7 +182,9 @@ Page({
         time,
         medicines,
         noticePerson,
-        acrtTime
+        acrtTime,
+        durationTime:data.durationTime
+        
       });
       if (res._id && that.data._id === '') {
         wx.showToast({
